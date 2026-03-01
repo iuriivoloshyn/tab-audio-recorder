@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tab Audio Recorder</title>
+    <link rel="stylesheet" href="recorder.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Tab Audio Recorder</h1>
+
+      <canvas id="visualizer" width="300" height="52"></canvas>
+
+      <div class="legend" id="legend">
+        <span class="legend-item"><span class="dot tab-dot"></span> Tab</span>
+      </div>
+
+      <div class="timer" id="timer">00:00</div>
+      <div class="status" id="status">Connecting...</div>
+
+      <div class="btn-row">
+        <button class="record-btn" id="recordBtn" title="Record">
+          <span class="record-icon" id="recordIcon"></span>
+        </button>
+        <button class="stop-btn hidden" id="stopBtn" title="Stop">
+          <span class="stop-icon"></span>
+        </button>
+      </div>
+      <div class="record-label" id="recordLabel">Start Recording</div>
+
+      <div class="controls">
+        <div class="control-group">
+          <div class="control-header">
+            <label>Tab Audio</label>
+            <span class="volume-value" id="tabVolumeValue">100%</span>
+          </div>
+          <input
+            type="range"
+            id="tabVolume"
+            min="0"
+            max="100"
+            value="100"
+            class="slider"
+          />
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="control-group">
+          <div class="control-header">
+            <label>Microphone</label>
+            <label class="switch">
+              <input type="checkbox" id="micToggle" />
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+          <div class="mic-controls" id="micControls">
+            <div class="mic-source-row">
+              <label>Source</label>
+              <select id="micSelect">
+                <option value="">Default</option>
+              </select>
+            </div>
+            <div class="control-header">
+              <label>Mic Volume</label>
+              <span class="volume-value" id="micVolumeValue">100%</span>
+            </div>
+            <input
+              type="range"
+              id="micVolume"
+              min="0"
+              max="100"
+              value="100"
+              class="slider mic-slider"
+            />
+          </div>
+        </div>
+      </div>
+
+      <button class="download-btn hidden" id="downloadBtn">
+        Download Recording
+      </button>
+    </div>
+    <script src="recorder.js"></script>
+  </body>
+</html>
