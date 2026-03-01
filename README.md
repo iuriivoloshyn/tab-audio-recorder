@@ -36,7 +36,7 @@ Chrome extension that records audio from browser tabs with optional microphone m
 Extension icon click
   → background.js gets tab stream ID via chrome.tabCapture
   → Opens recorder.html as a popup window
-  → recorder.js captures audio directly (visible window = full API access)
+  → recorder.js captures and records audio directly in the browser (no network, no external services)
 ```
 
 All audio processing happens in the recorder window using the Web Audio API:
@@ -59,3 +59,4 @@ All audio processing happens in the recorder window using the Web Audio API:
 
 - **Bluetooth headphones as mic**: On macOS, selecting a Bluetooth device as mic input causes the OS to switch from A2DP (high-quality playback) to HFP (low-quality bidirectional). This makes audio sound worse through those headphones while recording. The recorded file is unaffected. Use the built-in laptop mic for best results.
 - The extension uses no content scripts — the page cannot detect it is running.
+- **Fully offline** — no data leaves your browser. No network calls, no external services. Everything is processed locally.
